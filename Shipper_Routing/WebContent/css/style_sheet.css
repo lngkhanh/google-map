@@ -1,0 +1,195 @@
+html, body, #map-canvas {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: monospace;
+}
+
+#container {
+	margin: 0px auto;
+}
+
+.sidebar {
+	float: left;
+	width: 30%;
+	/* background: teal; */
+	height: 100%;
+	padding-bottom: 1%;
+}
+
+#directions-panel {
+	background-color: #D0CEC2;
+	padding-left: 10px;
+}
+
+.content {
+	position: absolute;
+	width: 69%;
+	height: 90%;
+	margin-left: 31%;
+}
+
+#footer {
+	background: rgba(210, 136, 136, 0);
+	text-align: center;
+	font-size: 15px;
+	position: static;
+	top: 100%;
+	width: 100%;
+	padding-bottom: 1%;
+}
+
+.clear {
+	clear: both
+}
+
+#btEdit {
+	width: 13%;
+	height: 50px;
+	padding-left: 8%;
+	padding-right: 2%;
+}
+
+/* #btSearch {
+	padding-left: 20px;
+	width: 30px;
+	height: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+} */
+#homeview {
+	background-color: teal;
+}
+
+#homeviewLogin {
+	background-image: url("../images/tr.jpg");
+	background-size: cover;
+	height: auto;
+	width: auto;
+	z-index: 0;
+}
+
+#floating-panel {
+	position: absolute;
+	top: 630px;
+	left: 50%;
+	padding: 5px;
+}
+
+#loginView_form {
+	margin-left: 40%;
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+
+.formlogin {
+	text-align: center;
+	color: white;
+	font-size: 35px;
+	text-shadow: 1px 2px 3px #121213;
+	padding-top: 7%;
+}
+
+.myButton {
+	background: transparent;
+	border-radius: 7px;
+	border: 1px solid #FFFFFF;
+	display: inline-block;
+	cursor: pointer;
+	font-size: 12px;
+	padding: 5px 21px;
+	height: 25px;
+	width: 100px;
+	color: white;
+}
+
+.myButton:hover {
+	background-color: white;
+	color: black;
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
+
+#contentTable {
+	font-size: 18px;
+	font-weight: bold;
+	color: white;
+	margin-left: 32%;
+	padding-top: 47%;
+}
+
+.register {
+	color: white;
+	border-radius: 7px;
+	display: inline-block;
+	cursor: pointer;
+	width: 100px;
+	padding-left: 10px;
+	text-align: center;
+	padding-right: 10px;
+	text-decoration: none;
+	border-radius: 7px;
+}
+
+.register:hover {
+	background-color: white;
+	color: black;
+	border-radius: 7px;
+	border: 1px solid #FFFFFF;
+	display: inline-block;
+	cursor: pointer;
+	width: 120px;
+}
+
+.register:active {
+	position: relative;
+	top: 1px;
+}
+
+.inputForm {
+	width: 160px;
+	height: 15px;
+	background: transparent;
+	border: 1px solid;
+	border-radius: 7px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+#successID {
+	color: white;
+	text-align: center;
+	padding-top: 100px;
+	font-family: monospace;
+	font-weight: bold;
+}
+
+.formlogin {
+	text-align: center;
+	color: white;
+	font-size: 35px;
+	text-shadow: 1px 2px 3px #121213;
+	padding-top: 50px;
+}
+
+#idLookup {
+	background-color: white;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+	height: 25px;
+	border: 1px solid #38C9EA;
+	width: 150%;
+}
+
+#idLookup:focus {
+	border-color: #4d90fe;
+}
