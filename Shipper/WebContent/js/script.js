@@ -15,11 +15,21 @@ var mapOptions = {
 
 function initialize() {
 
+	clearMarkers();
+
 	var summaryPanel = document.getElementById('directions-panel');
 	var contentTable = document.getElementById('contentTable');
+	var directions = document.getElementById('directions-panel');
 
-	// summaryPanel.style.display='none';
-	// contentTable.style.display='none';
+	summaryPanel.innerHTML = "";
+	contentTable.innerHTML = "";
+	directions.innerHTML = "";
+
+	summaryPanel.style.display = 'none';
+	contentTable.style.display = 'none';
+	directions.style.display = 'none';
+
+	divMapOptionOn();
 
 	var directionsService = new google.maps.DirectionsService;
 	var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -31,12 +41,6 @@ function initialize() {
 		addMarker(event.latLng, 'address_temp')
 	});
 
-	// poly = new google.maps.Polyline({
-	// strokeColor : '#000000',
-	// strokeOpacity : 1.0,
-	// strokeWeight : 3
-	// });
-	// poly.setMap(map);
 	map.addListener('click', addLatLng);
 
 	document.getElementById('submit').addEventListener('click', function() {
@@ -47,9 +51,14 @@ function initialize() {
 
 	var input = document.getElementById('idLookup');
 	var autocomplete = new google.maps.places.Autocomplete(input);
-
 }
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+	var summaryPanel = document.getElementById('directions-panel');
+	var contentTable = document.getElementById('contentTable');
+
+	summaryPanel.style.display = 'block';
+	contentTable.style.display = 'block';
+
 	var waypts = [];
 	var distance = 0;
 	var checkboxArray = document.getElementById('waypoints');
@@ -193,7 +202,6 @@ function addMarker(location, address) {
 function setMapOnAll(map) {
 	for (var i = 0; i < markers.length; i++) {
 		markers[i].setMap(map);
-		// routeCoordinates[i] = markers[i].getsBounds();
 	}
 }
 
@@ -211,19 +219,17 @@ function deleteMarkers() {
 
 }
 function doTimer() {
-	alert("Hello Word ! doTimer");
+	divMapOptionOff();
 }
 function doSearch() {
-	alert("Hello Word ! doSearch");
+	initialize();
+	var address = document.getElementById("idLookup").value;
+
+	setMarkerOnMap(address);
 }
 function doEdit() {
 	// window.alert("doEdit");
-	/*
-	 * var div = document.getElementById("dskhachhang"); div.style.display =
-	 * 'block';
-	 */
-	var url = "address";
-	doHttpEdit(url);
+	divMapOptionOff();	
 }
 
 function doHttpEdit(url) {
@@ -247,8 +253,12 @@ function parseAddrObj(ObjAddress) {
 		setMarkerOnMap(markers[i]);
 	}
 }
-
 function setMarkerOnMap(address) {
+	/* alert("Diachi: " + address); */
+	var icon = {
+		url : "images/kho.png",
+		scaledSize : new google.maps.Size(55, 55),
+	};
 	geocoder.geocode({
 		'address' : address
 	}, function(results, status) {
@@ -257,24 +267,14 @@ function setMarkerOnMap(address) {
 			// var lat = pos.lat();
 			// var lng = pos.lng();
 			// addMarker(pos,address);
-
 			map.setCenter(results[0].geometry.location);
 			var marker = new google.maps.Marker({
 				map : map,
 				position : results[0].geometry.location,
 				name : address,
-				animation : google.maps.Animation.DROP
+				animation : google.maps.Animation.DROP,
+				icon : icon
 			});
-			// //----- polyline
-			// poly = new google.maps.Polyline({
-			// strokeColor: '#000000',
-			// strokeOpacity: 1.0,
-			// strokeWeight: 3
-			// });
-			// poly.setMap(map);
-			//		         	
-			// map.addListener('onload', addLatLng);
-			// ---------------
 
 			var infowindow = new google.maps.InfoWindow({
 				content : '<b>' + address + '</b> <br\>' + pos
@@ -304,4 +304,23 @@ function detectBrowser() {
 		mapdiv.style.width = '600px';
 		mapdiv.style.height = '800px';
 	}
+}
+
+function divMapOptionOn() {
+	var div1 = document.getElementById('divMapOption');
+	var div2 = document.getElementById('directions-panel');
+	div1.style.display = 'block';
+	div2.style.display = 'block';
+}
+
+function divMapOptionOff() {
+	var div1 = document.getElementById('divMapOption');
+	var div2 = document.getElementById('directions-panel');
+	div1.style.display = 'none';
+	div2.style.display = 'none';
+	var contentTable = document.getElementById('contentTable');
+	contentTable.innerHTML = "";
+	
+	
+	
 }

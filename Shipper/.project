@@ -3,7 +3,6 @@
 	<name>Shipper</name>
 	<comment></comment>
 	<projects>
-		<project>TestTomcat</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

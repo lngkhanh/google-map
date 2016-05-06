@@ -13,10 +13,10 @@ public class MySQLConnUtils {
 		String userName = "root";
 		String password = "root";
 
-//		 String hostName = "node171324-ngockhanh.jelastic.servint.net";
+//		 String hostName = "node171687-giaohangnhanh.jelastic.servint.net";
 //		 String dbName = "shipper";
 //		 String userName = "root";
-//		 String password = "SCkhRSHlvO";
+//		 String password = "LGBstb83338";
 
 		return getMySQLConnection(hostName, dbName, userName, password);
 	}
@@ -26,7 +26,7 @@ public class MySQLConnUtils {
 		Class.forName("com.mysql.jdbc.Driver");
 
 		String connectionURL = "jdbc:mysql://" + hostName + ":3306/" + dbName;
-//		 String connectionURL ="jdbc:mysql://node171324-ngockhanh.jelastic.servint.net/shipper";
+//		 String connectionURL ="jdbc:mysql://"+hostName+"/"+dbName;
 		Connection conn = DriverManager.getConnection(connectionURL, userName, password);
 		return conn;
 	}
